@@ -6,10 +6,68 @@
    */
 
 // ======== OBJECTS DEFINITIONS ========
-// Define your objects here
 
+const aTinyWorld = [
+  {
+    man: {
+      species: "human",
+      name: "José",
+      gender: "male",
+      legs: 2,
+      hands: 2,
+      saying: "Hola, amigo!",
+      friends: ["Nerea", "Lalo"],
+    },
+  },
+  {
+    woman: {
+      species: "human",
+      name: "Martina",
+      gender: "female",
+      legs: 2,
+      hands: 2,
+      saying: "Buenos días!",
+      friends: ["Pako"],
+    },
+  },
+  {
+    cat: {
+      species: "cat",
+      name: "Lalo",
+      gender: "female",
+      legs: 4,
+      hands: 0,
+      saying: "¡miau miau!",
+      friends: ["José", "Nerea"],
+    },
+  },
+  {
+    dog: {
+      species: "dog",
+      name: "Pako",
+      gender: "male",
+      legs: 4,
+      hands: 0,
+      saying: "¡guau guau!",
+      friends: ["Martina"],
+    },
+  },
+  {
+    сatwoman: {
+      species: "human",
+      name: "Nerea",
+      gender: "female",
+      legs: 2,
+      hands: 2,
+      saying: " muchachos!",
+      friends: ["José", "Lalo"],
+    },
+  },
+];
 
 // ======== OUTPUT ========
+aTinyWorld.forEach((el) => print(`${obj.prop1}; ${obj.prop2}; ${obj.prop3};`));
+
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
 
@@ -27,5 +85,3 @@
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
-
-
