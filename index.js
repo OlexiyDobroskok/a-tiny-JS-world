@@ -29,7 +29,6 @@ class Resident {
     const activeProperties = properties.filter(
       (prop) => prop !== undefined && prop !== ""
     );
-    console.log(activeProperties);
     print(activeProperties.join("; "));
   }
 }
