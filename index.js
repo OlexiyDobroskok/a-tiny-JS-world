@@ -7,20 +7,13 @@
 
 // ======== OBJECTS DEFINITIONS ========
 
-class Animals {
-  constructor(species, gender, legs, saying) {
+class Resident {
+  constructor(species, name, gender, saying, friends) {
     this.species = species;
     this.gender = gender;
-    this.legs = legs;
-    this.saying = saying;
-  }
-}
-
-class Resident extends Animals {
-  constructor(species, name, gender, legs, saying, friends) {
-    super(species, gender, legs, saying);
     this.friends = friends;
     this.name = name;
+    this.saying = saying;
   }
   printPresentation() {
     const properties = [
@@ -28,6 +21,7 @@ class Resident extends Animals {
       this.name,
       this.gender,
       this.legs,
+      this.paws,
       this.hands,
       this.saying,
       this.friends,
@@ -35,63 +29,53 @@ class Resident extends Animals {
     const activeProperties = properties.filter(
       (prop) => prop !== undefined && prop !== ""
     );
+    console.log(activeProperties);
     print(activeProperties.join("; "));
   }
 }
 
 class Human extends Resident {
-  constructor(species, name, gender, legs, hands, saying, friends) {
-    super(species, name, gender, legs, saying, friends);
-    this.hands = hands;
+  constructor(name, gender, saying, friends) {
+    super("human", name, gender, saying, friends);
+    this.hands = 2;
+    this.legs = 2;
   }
 }
 
-class Cat extends Resident {
-  constructor(species, name, gender, legs, saying, friends) {
-    super(species, name, gender, legs, saying, friends);
+class Pet extends Resident {
+  constructor(species, name, gender, saying, friends) {
+    super(species, name, gender, saying, friends);
+    this.paws = 4;
   }
 }
 
-class Dog extends Resident {
-  constructor(species, name, gender, legs, saying, friends) {
-    super(species, name, gender, legs, saying, friends);
+class Cat extends Pet {
+  constructor(name, gender, saying, friends) {
+    super("cat", name, gender, saying, friends);
+  }
+}
+
+class Dog extends Pet {
+  constructor(name, gender, saying, friends) {
+    super("dog", name, gender, saying, friends);
   }
 }
 
 class CatWoman extends Human {
-  constructor(species, name, gender, legs, hands, saying, friends) {
-    super(species, name, gender, legs, hands, saying, friends);
+  constructor(name, gender, saying, friends) {
+    super(name, gender, saying, friends);
   }
 }
 
-const man = new Human("human", "José", "male", 2, 2, "Hola, amigo!", [
-  "Nerea",
+const man = new Human("José", "male", "Hola, amigo!", ["Nerea", "Lalo"]);
+const woman = new Human("Martina", "female", "Buenos días!", "Pako");
+const cat = new Cat("Lalo", "female", "¡miau miau!", ["José", "Nerea"]);
+const dog = new Dog("Pako", "male", "¡guau guau!", "Martina");
+
+const catwoman = new CatWoman("Nerea", "female", cat.saying + " muchachos!", [
+  "José",
   "Lalo",
 ]);
-const woman = new Human(
-  "human",
-  "Martina",
-  "female",
-  2,
-  2,
-  "Buenos días!",
-  "Pako"
-);
-const cat = new Cat("cat", "Lalo", "female", 4, "¡miau miau!", [
-  "José",
-  "Nerea",
-]);
-const dog = new Dog("dog", "Pako", "male", 4, "¡guau guau!", "Martina");
-
-const catwoman = new CatWoman(
-  "human",
-  "Nerea",
-  "female",
-  2,
-  2,
-  cat.saying + " muchachos!",
-  ["José", "Lalo"]
-);
 
 function showATinyWorldResidents(residents) {
   residents.forEach((resident) => resident.printPresentation());
