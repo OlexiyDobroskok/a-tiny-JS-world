@@ -71,12 +71,12 @@ const properties = [
 ];
 
 const residentsProperties = aTinyWorld.map((resident) => {
-  const allProperties = [];
-  properties.forEach((prop) => {
-    if (resident[prop] !== 0) {
-      allProperties.push(resident[prop]);
-    }
-  });
+  const allProperties = properties
+    .map((prop) => {
+      return resident[prop];
+    })
+    .filter((prop) => prop !== 0 && prop !== "");
+
   return allProperties;
 });
 
