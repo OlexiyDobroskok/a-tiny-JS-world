@@ -26,7 +26,6 @@ class Inhabitant {
   }
 
   introduceYourSelf() {
-    console.log(this.friends);
     if (this.friends.length === 0) {
       this.friends = "Looking for friends!";
       return `<strong>${this.saying}! My name is ${this.name}. Species: ${this.species}. Gender: ${this.gender}. Friends: ${this.friends} </strong>`;
@@ -63,14 +62,7 @@ class Woman extends Human {
 }
 
 class Pets extends Inhabitant {
-  constructor({
-    species,
-    name,
-    gender,
-    paws = 4,
-    saying,
-    friends,
-  } = petsDefaultProperties) {
+  constructor({ species, name, gender, paws = 4, saying, friends }) {
     super({ species, name, gender, saying, friends });
     this.paws = paws;
   }
