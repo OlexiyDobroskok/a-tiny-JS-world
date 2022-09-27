@@ -26,12 +26,10 @@ class Inhabitant {
   }
 
   introduceYourSelf() {
-    const template = `<strong>${this.saying}! My name is ${this.name}. Species: ${this.species}. Gender: ${this.gender}.</strong>`;
-    if (this.friends.length !== 0) {
-      const friendsName = this.friends.map((friend) => friend.name).join(", ");
-      return template + `<strong>Friends: ${friendsName}.</strong>`;
-    }
-    return template + `<strong>Friends: Looking for friends!</strong>`;
+    const friendsName = this.friends.length
+      ? this.friends.map((friend) => friend.name).join(", ")
+      : "Looking for friends";
+    return `<strong>${this.saying}! My name is ${this.name}. Species: ${this.species}. Gender: ${this.gender}. Friends: ${friendsName}.</strong>`;
   }
 }
 
